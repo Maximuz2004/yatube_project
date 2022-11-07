@@ -9,8 +9,14 @@ from django.http import HttpResponse
 
 def index(request):
     template = 'posts/index.html'
-    return render(request, template)
+    context = {
+        'title': 'Это главная страница проекта Yatube',
+    }
+    return render(request, template, context=context)
 
 def group_posts(request, slug):
     template = 'posts/group_list.html'
-    return render(request, template)
+    context = {
+        'title': 'Здесь будет информация о группах проекта Yatube',
+    }
+    return render(request, template, context=context)
