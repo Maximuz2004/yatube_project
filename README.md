@@ -9,4 +9,4 @@ Django 2.2.19
 -  В папке с файлом manage.py выполните команду: ``` python3 manage.py runserver ```
 
 ### Автор
-Максим
+[Максим Титов](https://github.com/Maximuz2004)
