@@ -9,7 +9,7 @@ def index(request):
     template = 'posts/index.html'
     posts = Post.objects.order_by('-pub_date')[:10]
     context = {
-        'title': 'Это главная страница проекта Yatube',
+        'title': 'Последние обновления на сайте',
         'posts': posts,
     }
     # print(posts.__dict__)
@@ -21,7 +21,7 @@ def group_posts(request, slug):
     group = get_object_or_404(Group, slug=slug)
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
     context = {
-        'title': slug,
+        'title': f'Записи сообщества {group.title}',
         'group_name': group.title,
         'group_desc': group.description,
         'posts': posts
