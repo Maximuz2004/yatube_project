@@ -10,7 +10,6 @@ def index(request):
         'title': 'Последние обновления на сайте',
         'posts': posts,
     }
-    # print(posts.__dict__)
     return render(request, template, context=context)
 
 
