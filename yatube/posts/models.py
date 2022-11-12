@@ -7,13 +7,13 @@ User = get_user_model()
 class Group(models.Model):
     title = models.CharField(
         max_length=200,
-        verbose_name='Зголовок'
+        verbose_name='Заголовок'
     )
     slug = models.SlugField(
         max_length=255,
         unique=True,
         db_index=True,
-        verbose_name='URL'
+        verbose_name='фрагмент URL'
     )
     description = models.TextField(verbose_name='Описание')
 
@@ -33,6 +33,9 @@ class Post(models.Model):
         Group,
         blank=True,
         null=True,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
         related_name='posts'
     )
+
+    class Meta:
+        ordering = ('-pub_date',)
